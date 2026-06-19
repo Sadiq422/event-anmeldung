@@ -1,78 +1,45 @@
-# Event-Anmeldung
+# Event-Anmeldung (Worker-Version)
 
-Custom RSVP-Seite. HTML-Frontend + Cloudflare Pages Function als Backend, schreibt direkt in Notion-DB.
-
-## Stack
-- Static HTML/CSS/JS (kein Build)
-- Cloudflare Pages + Pages Functions (Serverless Backend)
-- Notion REST API
+Single Cloudflare Worker - serviert HTML auf `/` und nimmt POST `/api/submit` -> schreibt in Notion-DB.
 
 ## Struktur
 ```
-event-anmeldung/
-  index.html                  # Frontend Form
-  functions/api/submit.js     # Backend POST /api/submit
-  README.md
+event-anmeldung-worker/
+  src/index.js     # Worker code (HTML + API in einer Datei)
+  wrangler.toml
+  package.json
 ```
 
-## Deployment
+## Deploy
 
-### 1. GitHub-Repo erstellen
+### Option A: Via wrangler CLI (lokal)
 ```
-cd event-anmeldung
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin git@github.com:<user>/event-anmeldung.git
-git push -u origin main
-```
-
-### 2. Cloudflare Pages verbinden
-1. Cloudflare Dashboard -> Workers & Pages -> Create -> Pages -> Connect to Git
-2. GitHub-Repo `event-anmeldung` auswählen
-3. Build settings:
-   - Framework preset: None
-   - Build command: (leer lassen)
-   - Build output directory: `/`
-4. Save and Deploy
-
-### 3. Environment Variables setzen
-Im Cloudflare Pages Projekt -> Settings -> Environment variables -> Production:
-
-| Name | Value |
-|------|-------|
-| `NOTION_TOKEN` | dein Notion Integration Secret (`ntn_...`) |
-| `NOTION_DATABASE_ID` | `1e0bbd034a45443b931e1a31fbf42edf` |
-
-Danach Deployment neu triggern (Deployments -> Retry deployment).
-
-### 4. Notion Integration mit DB verbinden
-DB in Notion öffnen -> "..." -> "Connections" -> Integration "Event-Anmeldung" hinzufügen.
-
-### 5. URL teilen
-Nach Deployment bekommst du URL wie `https://event-anmeldung.pages.dev`. Diese an Gäste schicken.
-
-## Lokal testen
-```
-npm install -g wrangler
-wrangler pages dev .
-```
-Lokal die ENV vars setzen über `.dev.vars`:
-```
-NOTION_TOKEN=ntn_xxx
-NOTION_DATABASE_ID=1e0bbd034a45443b931e1a31fbf42edf
+npm install
+npx wrangler login
+npx wrangler secret put NOTION_TOKEN
+# fragt nach Token -> ntn_... eingeben
+npx wrangler secret put NOTION_DATABASE_ID
+# fragt nach ID -> 1e0bbd034a45443b931e1a31fbf42edf eingeben
+npm run deploy
 ```
 
-## Sicherheit
-- Token NIEMALS ins Repo committen
-- `.dev.vars` und `.env*` in `.gitignore`
-- Token wurde im Chat geteilt -> nach Deployment rotieren (neue Integration erstellen, alte löschen)
+### Option B: Via Cloudflare Dashboard
+1. Workers & Pages -> Create -> Worker
+2. Code aus `src/index.js` reinkopieren
+3. Save and Deploy
+4. Settings -> Variables -> Add variable (TYPE: Secret):
+   - `NOTION_TOKEN` = dein Token
+   - `NOTION_DATABASE_ID` = `1e0bbd034a45443b931e1a31fbf42edf`
+5. Save
 
-## Notion DB Schema
-- Vorname (title)
-- Nachname (rich_text)
-- Zusage (select: Kommen / Noch nicht sicher / Gebe bis 06.07.2026 Bescheid)
-- Eingegangen am (created_time, auto)
+## Wichtig: Notion-Integration mit DB verbinden
+1. Notion-DB öffnen: https://app.notion.com/p/1e0bbd034a45443b931e1a31fbf42edf
+2. Oben rechts "..." -> Connections (oder "Add connections")
+3. Integration "Event-Anmeldung" suchen und hinzufügen
 
-DB-URL: https://app.notion.com/p/1e0bbd034a45443b931e1a31fbf42edf
+Ohne diesen Schritt gibt die Notion-API einen 404 zurück.
+
+## Test
+Nach Deploy: `https://event-anmeldung.<dein-subdomain>.workers.dev` öffnen, Formular ausfüllen, Absenden.
+
+Bei Fehler: F12 -> Network -> submit Request -> Response zeigt detaillierten Notion-Fehler.
