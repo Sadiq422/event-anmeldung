@@ -1,3 +1,7 @@
+
 name = "event-anmeldung"
 main = "src/index.js"
 compatibility_date = "2024-12-01"
+ 
+[vars]
+NOTION_DATABASE_ID = "1e0bbd034a45443b931e1a31fbf42edf"
