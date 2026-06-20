@@ -2,7 +2,7 @@
 // Routes:
 //   GET  /            -> HTML Einladung + Form
 //   POST /api/submit  -> Speichert Anmeldung in Notion
-//   GET  /event.ics   -> Kalender-Datei zum Download
+//   GET  /event.ics   -> Kalender-Datei (iOS / Apple Kalender)
 // ENV: NOTION_TOKEN (Secret), NOTION_DATABASE_ID
 
 const VALID_ZUSAGE = new Set([
@@ -18,6 +18,9 @@ const EVENT = {
   dtstartUTC: '20260711T150000Z',
   dtendUTC: '20260711T210000Z',
 };
+
+// Google Calendar Add-Event URL (öffnet Browser, User klickt "Speichern")
+const GOOGLE_CAL_URL = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(EVENT.title)}&dates=${EVENT.dtstartUTC}/${EVENT.dtendUTC}&details=${encodeURIComponent(EVENT.description)}&location=${encodeURIComponent(EVENT.location)}`;
 
 const HTML = `<!DOCTYPE html>
 <html lang="de">
@@ -55,23 +58,16 @@ const HTML = `<!DOCTYPE html>
       position: absolute; top: 0; left: 0; right: 0; height: 4px;
       background: linear-gradient(90deg, #c9a55c, #e6c789, #c9a55c);
     }
-    .family-mark {
-      text-align: center; margin-bottom: 18px;
-      font-size: 11px; letter-spacing: 0.32em; color: #c9a55c; font-weight: 600;
-    }
-    .kicker {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
-      color: #c9a55c; text-transform: uppercase; margin-bottom: 14px;
-    }
     h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 40px; font-weight: 600; line-height: 1.1;
       color: #1a2d4f; margin-bottom: 28px; letter-spacing: -0.01em;
+      text-align: center;
     }
     h1 em { color: #c9a55c; font-style: italic; font-weight: 500; }
     .event-info {
       background: #fff; border-radius: 12px; padding: 22px 24px;
-      margin: 0 0 28px; border: 1px solid #ead7b0;
+      margin: 0 0 8px; border: 1px solid #ead7b0;
     }
     .info-row {
       display: flex; align-items: flex-start; gap: 12px;
@@ -81,19 +77,6 @@ const HTML = `<!DOCTYPE html>
     .info-icon { color: #c9a55c; flex-shrink: 0; font-size: 18px; line-height: 1.4; }
     .info-text { flex: 1; }
     .info-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #94a3b8; text-transform: uppercase; margin-bottom: 2px; }
-    .closing { font-style: italic; color: #475569; margin: 16px 0 6px; font-size: 15px; text-align: center; }
-    .signature {
-      font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
-      color: #c9a55c; font-size: 26px; text-align: center; margin-top: 4px;
-    }
-    .contact-box {
-      background: #fff; border: 1px solid #ead7b0; border-radius: 12px;
-      padding: 18px 20px; margin: 28px 0 0;
-    }
-    .contact-box .kicker { margin-bottom: 8px; }
-    .contact-box p { font-size: 14px; color: #334155; margin-bottom: 6px; }
-    .contact-box .contact-line { font-weight: 600; color: #1a2d4f; }
-    .contact-box a { color: #1a2d4f; text-decoration: none; }
     .divider {
       border: none; height: 1px;
       background: linear-gradient(90deg, transparent, #d4c193, transparent);
@@ -175,6 +158,16 @@ const HTML = `<!DOCTYPE html>
       font-weight: 600; color: #1a2d4f; margin-bottom: 6px;
     }
     .prompt-box p { font-size: 14px; color: #475569; margin-bottom: 16px; }
+    .calendar-options { display: flex; flex-direction: column; gap: 10px; }
+    .cal-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: all 0.15s; cursor: pointer;
+      font-family: inherit; border: 1.5px solid transparent;
+    }
+    .cal-google { background: #1a2d4f; color: #faf7f0; }
+    .cal-google:active { transform: translateY(1px); }
+    .cal-apple { background: #fff; color: #1a2d4f; border-color: #1a2d4f; }
     @media (max-width: 480px) {
       .container { margin: 0 auto; }
       .card { padding: 28px 22px; border-radius: 14px; }
@@ -187,8 +180,6 @@ const HTML = `<!DOCTYPE html>
   <div class="container">
     <div class="card" id="main-card">
       <div id="invitation-content">
-        <p class="family-mark">FAMILIE YOUSUFI &nbsp;·&nbsp; 2016 — 2026</p>
-        <p class="kicker">Einladung zu einem besonderen Anlass</p>
         <h1>Wir feiern <em>gemeinsam</em></h1>
 
         <div class="event-info">
@@ -206,15 +197,6 @@ const HTML = `<!DOCTYPE html>
               Käthe-Kollwitz-Straße 16a<br>15827 Blankenfelde-Mahlow
             </span>
           </div>
-        </div>
-
-        <p class="closing">Wir freuen uns sehr darauf, diesen besonderen Tag gemeinsam mit Euch zu verbringen.</p>
-        <p class="signature">Herzlich willkommen!</p>
-
-        <div class="contact-box">
-          <p class="kicker">Um Zu- oder Absage wird gebeten</p>
-          <p>Eure Zu- oder Absagen erbitte ich spätestens bis zum <strong>04.07.2026</strong> — einfach unten anmelden oder anrufen:</p>
-          <p class="contact-line">Hakim · Tel. <a href="tel:+4917647008225">0176 47008225</a></p>
         </div>
 
         <hr class="divider">
@@ -255,10 +237,15 @@ const HTML = `<!DOCTYPE html>
 
         <div class="prompt-box" id="calendar-prompt">
           <h3>Termin im Kalender speichern?</h3>
-          <p>Möchtest du den Termin in deinen Kalender hinzufügen, damit du ihn nicht vergisst?</p>
-          <div class="button-row">
-            <button type="button" id="cal-yes">Ja, hinzufügen</button>
-            <button type="button" class="outline" id="cal-no">Nein, danke</button>
+          <p>Wähle deine Kalender-App. Der Termin wird direkt geöffnet, du musst nur noch auf "Speichern" tippen.</p>
+          <div class="calendar-options">
+            <a class="cal-btn cal-google" href="${GOOGLE_CAL_URL}" target="_blank" rel="noopener" id="cal-google-btn">
+              <span>&#x1F4C5;</span><span>Google Kalender öffnen</span>
+            </a>
+            <a class="cal-btn cal-apple" href="/event.ics" id="cal-apple-btn">
+              <span>&#xF8FF;</span><span>Apple / iPhone Kalender</span>
+            </a>
+            <button type="button" class="outline" id="cal-skip">Nein, überspringen</button>
           </div>
         </div>
 
@@ -311,21 +298,14 @@ const HTML = `<!DOCTYPE html>
 
     function showError(text) { message.textContent = text; message.className = 'message error'; }
 
-    document.getElementById('cal-yes').addEventListener('click', () => {
-      // Trigger ICS download
-      const a = document.createElement('a');
-      a.href = '/event.ics';
-      a.download = 'familie-yousufi-2026-07-11.ics';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+    function showPostCalendar() {
       calendarPrompt.classList.add('hidden');
       postCalendar.classList.remove('hidden');
-    });
-    document.getElementById('cal-no').addEventListener('click', () => {
-      calendarPrompt.classList.add('hidden');
-      postCalendar.classList.remove('hidden');
-    });
+    }
+
+    document.getElementById('cal-google-btn').addEventListener('click', () => setTimeout(showPostCalendar, 400));
+    document.getElementById('cal-apple-btn').addEventListener('click', () => setTimeout(showPostCalendar, 400));
+    document.getElementById('cal-skip').addEventListener('click', showPostCalendar);
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -472,7 +452,7 @@ export default {
       return new Response(buildICS(), {
         headers: {
           'Content-Type': 'text/calendar; charset=utf-8',
-          'Content-Disposition': 'attachment; filename="familie-yousufi-2026-07-11.ics"',
+          'Content-Disposition': 'inline; filename="familie-yousufi-2026-07-11.ics"',
         },
       });
     }
