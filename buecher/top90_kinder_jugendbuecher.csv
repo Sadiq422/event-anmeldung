@@ -1,0 +1,91 @@
+id,titel_de,titel_original,autor,jahr,altersgruppe,genre,auszeichnung
+1,Die kleine Raupe Nimmersatt,The Very Hungry Caterpillar,Eric Carle,1969,3-6,Bilderbuch,
+2,Wo die wilden Kerle wohnen,Where the Wild Things Are,Maurice Sendak,1963,3-6,Bilderbuch,Caldecott Medal 1964
+3,Der Grüffelo,The Gruffalo,"Julia Donaldson, Axel Scheffler",1999,3-6,Bilderbuch,Nestlé Smarties Book Prize 1999
+4,Frederick,Frederick,Leo Lionni,1967,3-6,Bilderbuch,Caldecott Honor 1968
+5,"Gute Nacht, Gorilla!","Good Night, Gorilla",Peggy Rathmann,1994,3-6,Bilderbuch,
+6,"Weißt du eigentlich, wie lieb ich dich hab?",Guess How Much I Love You,"Sam McBratney, Anita Jeram",1994,3-6,Bilderbuch,
+7,Der Regenbogenfisch,Der Regenbogenfisch,Marcus Pfister,1992,3-6,Bilderbuch,
+8,Das kleine Ich bin ich,Das kleine Ich bin ich,"Mira Lobe, Susi Weigel",1972,3-6,Bilderbuch,
+9,"Vom kleinen Maulwurf, der wissen wollte, wer ihm auf den Kopf gemacht hat",(dt. Original),"Werner Holzwarth, Wolf Erlbruch",1989,3-6,Bilderbuch,
+10,"Oh, wie schön ist Panama",(dt. Original),Janosch,1978,3-6,Bilderbuch,Deutscher Jugendliteraturpreis 1979
+11,Das NEINhorn,(dt. Original),"Marc-Uwe Kling, Astrid Henn",2019,3-6,Bilderbuch,
+12,Elmar,Elmer,David McKee,1989,3-6,Bilderbuch,
+13,"Kleiner Eisbär, wohin fährst du?",Kleine IJsbeer,Hans de Beer,1987,3-6,Bilderbuch,
+14,Eine Geburtstagstorte für die Katze,Pannkakstårtan,Sven Nordqvist,1984,3-6,Bilderbuch,
+15,Die Schnecke und der Buckelwal,The Snail and the Whale,"Julia Donaldson, Axel Scheffler",2003,3-6,Bilderbuch,
+16,Wir gehen auf Bärenjagd,We're Going on a Bear Hunt,"Michael Rosen, Helen Oxenbury",1989,3-6,Bilderbuch,Nestlé Smarties Book Prize 1989
+17,"Gute Nacht, lieber Mond",Goodnight Moon,"Margaret Wise Brown, Clement Hurd",1947,3-6,Bilderbuch,
+18,"Der Löwe, der nicht schreiben konnte",(dt. Original),Martin Baltscheit,2002,3-6,Bilderbuch,
+19,Irgendwie Anders,Something Else,"Kathryn Cave, Chris Riddell",1994,3-6,Bilderbuch,
+20,"Ente, Tod und Tulpe",(dt. Original),Wolf Erlbruch,2007,3-6,Bilderbuch,
+21,Pippi Langstrumpf,Pippi Långstrump,Astrid Lindgren,1945,7-10,Kinderroman,
+22,Die kleine Hexe,(dt. Original),Otfried Preußler,1957,7-10,Fantasy,
+23,Eine Woche voller Samstage (Das Sams),(dt. Original),Paul Maar,1973,7-10,Fantasy,
+24,Jim Knopf und Lukas der Lokomotivführer,(dt. Original),Michael Ende,1960,7-10,Fantasy,Deutscher Jugendbuchpreis 1961
+25,Der Räuber Hotzenplotz,(dt. Original),Otfried Preußler,1962,7-10,Abenteuer,
+26,Emil und die Detektive,(dt. Original),Erich Kästner,1929,7-10,Krimi,
+27,Das doppelte Lottchen,(dt. Original),Erich Kästner,1949,7-10,Kinderroman,
+28,Charlie und die Schokoladenfabrik,Charlie and the Chocolate Factory,Roald Dahl,1964,7-10,Fantasy,
+29,Matilda,Matilda,Roald Dahl,1988,7-10,Fantasy,
+30,Sophiechen und der Riese,The BFG,Roald Dahl,1982,7-10,Fantasy,
+31,Wir Kinder aus Bullerbü,Alla vi barn i Bullerbyn,Astrid Lindgren,1947,7-10,Kinderroman,
+32,Michel aus Lönneberga,Emil i Lönneberga,Astrid Lindgren,1963,7-10,Kinderroman,
+33,Pu der Bär,Winnie-the-Pooh,A. A. Milne,1926,7-10,Kinderroman,
+34,Wilbur und Charlotte,Charlotte's Web,E. B. White,1952,7-10,Tiergeschichte,Newbery Honor 1953
+35,Der kleine Prinz,Le Petit Prince,Antoine de Saint-Exupéry,1943,7-10,Märchen/Philosophie,
+36,"Rico, Oskar und die Tieferschatten",(dt. Original),Andreas Steinhöfel,2008,7-10,Krimi,Deutscher Jugendliteraturpreis 2009
+37,Paddington,A Bear Called Paddington,Michael Bond,1958,7-10,Kinderroman,
+38,Mary Poppins,Mary Poppins,P. L. Travers,1934,7-10,Fantasy,
+39,Alice im Wunderland,Alice's Adventures in Wonderland,Lewis Carroll,1865,7-10,Fantasy,
+40,Die Schule der magischen Tiere,(dt. Original),Margit Auer,2013,7-10,Fantasy,
+41,Gregs Tagebuch,Diary of a Wimpy Kid,Jeff Kinney,2007,7-10,Comic-Roman,
+42,Das magische Baumhaus: Im Tal der Dinosaurier,Dinosaurs Before Dark,Mary Pope Osborne,1992,7-10,Abenteuer,
+43,Der kleine Nick,Le Petit Nicolas,"René Goscinny, Jean-Jacques Sempé",1960,7-10,Humor,
+44,Die Olchis sind da,(dt. Original),Erhard Dietl,1990,7-10,Humor,
+45,Wir pfeifen auf den Gurkenkönig,(dt. Original),Christine Nöstlinger,1972,7-10,Humor,Deutscher Jugendbuchpreis 1973
+46,Harry Potter und der Stein der Weisen,Harry Potter and the Philosopher's Stone,J. K. Rowling,1997,11-13,Fantasy,Nestlé Smarties Book Prize 1997
+47,Die unendliche Geschichte,(dt. Original),Michael Ende,1979,11-13,Fantasy,
+48,Momo,(dt. Original),Michael Ende,1973,11-13,Fantasy,Deutscher Jugendbuchpreis 1974
+49,Ronja Räubertochter,Ronja rövardotter,Astrid Lindgren,1981,11-13,Abenteuer,Deutscher Jugendliteraturpreis 1982
+50,Die Brüder Löwenherz,Bröderna Lejonhjärta,Astrid Lindgren,1973,11-13,Fantasy,
+51,Krabat,(dt. Original),Otfried Preußler,1971,11-13,Fantasy,Deutscher Jugendbuchpreis 1972
+52,Der Hobbit,The Hobbit,J. R. R. Tolkien,1937,11-13,Fantasy,
+53,Der König von Narnia,"The Lion, the Witch and the Wardrobe",C. S. Lewis,1950,11-13,Fantasy,
+54,Der Goldene Kompass,Northern Lights,Philip Pullman,1995,11-13,Fantasy,Carnegie Medal 1995
+55,Wunder,Wonder,R. J. Palacio,2012,11-13,Realistisch,
+56,Hüter der Erinnerung,The Giver,Lois Lowry,1993,11-13,Dystopie,Newbery Medal 1994
+57,Insel der blauen Delphine,Island of the Blue Dolphins,Scott O'Dell,1960,11-13,Abenteuer,Newbery Medal 1961
+58,Brücke nach Terabithia,Bridge to Terabithia,Katherine Paterson,1977,11-13,Realistisch,Newbery Medal 1978
+59,Löcher,Holes,Louis Sachar,1998,11-13,Abenteuer,Newbery Medal 1999; National Book Award 1998
+60,Die Zeitfalte,A Wrinkle in Time,Madeleine L'Engle,1962,11-13,Science-Fiction,Newbery Medal 1963
+61,Tintenherz,(dt. Original),Cornelia Funke,2003,11-13,Fantasy,
+62,Herr der Diebe,(dt. Original),Cornelia Funke,2000,11-13,Abenteuer,
+63,Percy Jackson: Diebe im Olymp,The Lightning Thief,Rick Riordan,2005,11-13,Fantasy,
+64,Das Tagebuch der Anne Frank,Het Achterhuis,Anne Frank,1947,11-13,Zeitgeschichte/Tagebuch,
+65,Damals war es Friedrich,(dt. Original),Hans Peter Richter,1961,11-13,Zeitgeschichte,
+66,Als Hitler das rosa Kaninchen stahl,When Hitler Stole Pink Rabbit,Judith Kerr,1971,11-13,Zeitgeschichte,Deutscher Jugendbuchpreis 1974
+67,Der geheime Garten,The Secret Garden,Frances Hodgson Burnett,1911,11-13,Klassiker,
+68,Die Schatzinsel,Treasure Island,Robert Louis Stevenson,1883,11-13,Abenteuer,
+69,Das Dschungelbuch,The Jungle Book,Rudyard Kipling,1894,11-13,Klassiker,
+70,Ben liebt Anna,(dt. Original),Peter Härtling,1979,11-13,Realistisch,
+71,Tschick,(dt. Original),Wolfgang Herrndorf,2010,14-18,Coming-of-Age,Deutscher Jugendliteraturpreis 2011
+72,Die Tribute von Panem: Tödliche Spiele,The Hunger Games,Suzanne Collins,2008,14-18,Dystopie,
+73,Das Schicksal ist ein mieser Verräter,The Fault in Our Stars,John Green,2012,14-18,Realistisch,
+74,Die Bücherdiebin,The Book Thief,Markus Zusak,2005,14-18,Zeitgeschichte,Printz Honor 2007
+75,Wer die Nachtigall stört,To Kill a Mockingbird,Harper Lee,1960,14-18,Klassiker,Pulitzer-Preis 1961
+76,Der Fänger im Roggen,The Catcher in the Rye,J. D. Salinger,1951,14-18,Coming-of-Age,
+77,Die Welle,The Wave,Morton Rhue,1981,14-18,Gesellschaft,
+78,Die Wolke,(dt. Original),Gudrun Pausewang,1987,14-18,Gesellschaft,Deutscher Jugendliteraturpreis 1988
+79,Sofies Welt,Sofies verden,Jostein Gaarder,1991,14-18,Philosophie,Deutscher Jugendliteraturpreis 1994
+80,Herr der Fliegen,Lord of the Flies,William Golding,1954,14-18,Klassiker,
+81,Farm der Tiere,Animal Farm,George Orwell,1945,14-18,Klassiker,
+82,The Hate U Give,The Hate U Give,Angie Thomas,2017,14-18,Gesellschaft,William C. Morris Award 2018; Printz Honor 2018
+83,Supergute Tage oder Die sonderbare Welt des Christopher Boone,The Curious Incident of the Dog in the Night-Time,Mark Haddon,2003,14-18,Krimi/Realistisch,Whitbread Book of the Year 2003
+84,Das also ist mein Leben,The Perks of Being a Wallflower,Stephen Chbosky,1999,14-18,Coming-of-Age,
+85,Sieben Minuten nach Mitternacht,A Monster Calls,Patrick Ness,2011,14-18,Fantasy/Realistisch,Carnegie Medal 2012; Kate Greenaway Medal 2012
+86,Nichts. Was im Leben wichtig ist,Intet,Janne Teller,2000,14-18,Philosophie,
+87,Die Outsider,The Outsiders,S. E. Hinton,1967,14-18,Coming-of-Age,
+88,Der Junge im gestreiften Pyjama,The Boy in the Striped Pyjamas,John Boyne,2006,14-18,Zeitgeschichte,
+89,Erebos,(dt. Original),Ursula Poznanski,2010,14-18,Thriller,Deutscher Jugendliteraturpreis 2011 (Preis der Jugendjury)
+90,Die Mitte der Welt,(dt. Original),Andreas Steinhöfel,1998,14-18,Coming-of-Age,
